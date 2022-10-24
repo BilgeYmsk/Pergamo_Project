@@ -7,6 +7,9 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -372,6 +375,31 @@ public class BrowserUtils {
      */
     public static void waitForPresenceOfElement(By by, long time) {
         new WebDriverWait(Driver.get(), time).until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
+    /**
+     *  check thr all links
+     * @param url
+
+     */
+
+    public boolean verifyLink(String url) {
+
+        try {
+            URL urlSite = new URL(url);  // java.net  import
+            HttpURLConnection urlConnection = (HttpURLConnection) urlSite.openConnection();
+            urlConnection.setConnectTimeout(3000);
+            urlConnection.connect();
+            if (urlConnection.getResponseCode() >= 200 && urlConnection.getResponseCode() < 400)
+                return true;
+            else return false;
+
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+
     }
 
 }

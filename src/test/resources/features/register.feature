@@ -1,34 +1,44 @@
+@register
 Feature:Register Function
 
   Background:
-    Given Der Benutzer befindet sich auf der Anmeldeseite
-    When  Der Benutzer klickt auf Ihr Konto
-
-  Scenario:
-    When  Der Benutzer gibt eine gültige E-Mail-Adresse und ein gültiges Passwort ein
-    And   Der Benutzer klickt auf die Datenschutzerklärung.
-    And   Der Benutzer klickt auf die Schaltfläche Registrieren
-    Then  Stellen Sie sicher, dass der Benutzer in der Lage sein sollte, sich mit gültigen Anmeldeinformationen zu registrieren
+    Given The user is on the login page
+    When  The user click on Ihr Konto Menu
 
 
-  @registerNgtv
+  Scenario:Register Function_positive scenario
+    When The user enters valid "sdet.praktikum7@gmail.com" and "Test1234!()TEST."
+    And  The user click on Privacy Policy Box
+    And  The user click on Registieren button
+    Then Verify that the user can be register mit valid Email "sdet.praktikum7"
+
+
   Scenario Outline:Register Function_negative scenario
-    When  Der Benutzer gibt eine "<E-Mail-Adresse>" und ein "<Passwort>" ein
-    And   Der Benutzer klickt auf die Datenschutzerklärung.
-    And   Der Benutzer klickt auf die Schaltfläche Registrieren
-    Then  Stellen Sie sicher, dass der Benutzer "<Warnmeldung>" sehen kann und sich nicht registrieren kann
+    When The user enters invalid "<email>" , "<password>"
+    And  The user click on Privacy Policy Box
+    And  The user click on Registieren button
+    Then Verify that The user should be able to see "<Warnung Message>" and can not be register
 
     Examples:
-      | E-Mail-Adresse     | Passwort       | Warnmeldung                                       |
-      | sdet_blg@gmail     |                | Fehler: Bitte gib eine gültige E-Mail-Adresse an. |
-      |                    | Test1234!?TEST | Fehler: Bitte gib eine gültige E-Mail-Adresse an. |
-      | sdet_blggmail.com  | Test1234!?TEST |                                                   |
-      | sdet_blg@gmail.com |                | Fehler: Bitte gib ein Passwort für das Konto ein. |
-#      | sdet_blg@gmail.com |                | Fehler: Bitte akzeptiere die Erstellung eines neuen Kundenkontos |
-#      | sdet_blg@gmail.com |                | Fehler: Bitte gib ein Passwort für das Konto ein.                |
-#      | sdet_blg@com      | Test1234!?TEST | Fehler: Bitte gib eine gültige E-Mail-Adresse an. |
-#      | sdet_blg@com               | TEST1234!§$test | Fehler: Bitte gib eine gültige E-Mail-Adresse an. |
-#     | sdet_blggmail.com | Test1234! | Schwach - Bitte gib ein stärkeres Passwort ein. |
+      | email                     | password       | Warnung Message                                                                     |
+      | sdet.praktikum5@gmail     |                | Fehler: Bitte gib eine gültige E-Mail-Adresse an.                                   |
+      | sdet.praktikum5@com       |                | Fehler: Bitte gib eine gültige E-Mail-Adresse an.                                   |
+      | sdet.praktikum5gmail.com  | Test1234!?TEST |                                                                                     |
+      |                           | Test1234!?TEST | Fehler: Bitte gib eine gültige E-Mail-Adresse an.                                   |
+      | sdet.praktikum5@gmail.com |                | Fehler: Für diese E-Mail-Adresse existiert bereits ein Kundenkonto. Bitte anmelden. |
+      | sdet.praktikum5@gmail.com | Test1234!?TEST | Fehler: Für diese E-Mail-Adresse existiert bereits ein Kundenkonto. Bitte anmelden. |
+
+
+#   Schwach - Bitte gib ein stärkeres Passwort ein.
 #   Die E-Mail-Adresse muss ein @-Zeichen enthalten. In der Angabe "sdet_blggmail.com" fehlt ein @-Zeichen.
+
+
+  Scenario Outline:Register Function_negative scenario2
+    When The user enters invalid "<email>" , "<password>"
+    And  The user click on Registieren button
+    Then Verify that The user should be able to see "<Warnung Message>" and can not be register
+    Examples:
+      | email                 | password       | Warnung Message                                                  |
+      | sdet.praktikum5@gmail | Test1234!?TEST | Fehler: Bitte akzeptiere die Erstellung eines neuen Kundenkontos |
 
 

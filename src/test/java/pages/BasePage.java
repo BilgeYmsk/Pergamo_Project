@@ -25,6 +25,7 @@ public abstract class BasePage {
     public void mastmenu_mth(String category) {
         WebElement category_tb = Driver.get().findElement(By.xpath("(//a[text()='" + category + "'])[1]"));
         hover(category_tb);
+
 //        category_tb.click();
 //        waitFor(2);
     }

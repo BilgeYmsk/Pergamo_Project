@@ -3,51 +3,67 @@ package stepDefs;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import pages.KontoPage;
 import pages.LoginPage;
 import static utilities.BrowserUtils.*;
 
 public class Register_StepDef {
 
     LoginPage loginPage=new LoginPage();
+    KontoPage konto=new KontoPage();
 
-    @When("Der Benutzer klickt auf Ihr Konto")
-    public void derBenutzerKlicktAufIhrKonto() {
+    @When("The user click on Ihr Konto Menu")
+    public void theUserClickOnIhrKontoMenu() {
+
         loginPage.konto_btn.click();
-
     }
 
-    @And("Der Benutzer gibt eine gültige E-Mail-Adresse und ein gültiges Passwort ein")
-    public void derBenutzerGibtEineGültigeEMailAdresseUndEinGültigesPasswortEin() {
+
+    @When("The user enters valid E-Mail and Passwort")
+    public void theUserEntersValidEMailAndPasswort() {
+
         loginPage.login();
     }
 
-    @And("Der Benutzer klickt auf die Datenschutzerklärung.")
-    public void derBenutzerKlicktAufDieDatenschutzerklärung() {
+    @When("The user enters valid {string} and {string}")
+    public void theUserEntersValidAnd(String email, String password) {
+
+        loginPage.theUserEntersEmailAndPassword(email,password);
+
+    }
+
+    @When("The user click on Privacy Policy Box")
+    public void the_user_click_on_Privacy_Policy_Box()  {
+
         loginPage.reg_data_privacy_loc.click();
     }
 
+    @When("The user click on Registieren button")
+    public void the_user_click_on_Registieren_button() {
 
-    @And("Der Benutzer klickt auf die Schaltfläche Registrieren")
-    public void derBenutzerKlicktAufDieSchaltflächeRegistrieren() {
-//        clickWithJS(loginPage.register_btn);
         loginPage.register_btn.click();
-       waitFor(3);
+        waitFor(3);
     }
 
-    @Then("Stellen Sie sicher, dass der Benutzer in der Lage sein sollte, sich mit gültigen Anmeldeinformationen zu registrieren")
-    public void stellenSieSicherDassDerBenutzerInDerLageSeinSollteSichMitGültigenAnmeldeinformationenZuRegistrieren() {
-    }
+    @Then("Verify that The user should be able to see {string} and can not be register")
+    public void verify_that_The_user_should_be_able_to_see_and_can_not_be_register(String warnmeldung) {
 
-    @When("Der Benutzer gibt eine {string} und ein {string} ein")
-    public void derBenutzerGibtEineUndEinEin(String email, String passwort) {
-        loginPage.registerEmail_loc.sendKeys(email);
-        loginPage.reg_password_loc.sendKeys(passwort);
-
-    }
-
-    @Then("Stellen Sie sicher, dass der Benutzer {string} sehen kann und sich nicht registrieren kann")
-    public void stellenSieSicherDassDerBenutzerSehenKannUndSichNichtRegistrierenKann(String warnmeldung) {
         loginPage.warnmeldungVerify(warnmeldung);
 
     }
+
+    @When("The user enters invalid {string} , {string}")
+    public void the_user_enters_invalid(String email, String password) {
+
+        loginPage.theUserEntersEmailAndPassword(email,password);
+    }
+
+
+    @Then("Verify that the user can be register mit valid Email {string}")
+    public void verify_that_the_user_can_be_register_mit_valid_Email(String email) {
+
+        konto.theUserCanBeRegister(email);
+    }
+
 }

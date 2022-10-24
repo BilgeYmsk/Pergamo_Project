@@ -2,6 +2,7 @@ package pages;
 
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -46,6 +47,19 @@ public class LoginPage extends BasePage {
     @FindBy(css = ".woocommerce-password-strength.bad")
     public WebElement passwordWarnung_loc;
 
+    public void login(){
+
+        username_loc.sendKeys(ConfigurationReader.get("email"));
+        password_loc.sendKeys(ConfigurationReader.get("passwort"));
+        anmeldenBtn_loc.click();
+
+    }
+
+    public void theUserEntersEmailAndPassword(String email, String password) {
+        registerEmail_loc.sendKeys(email);
+        reg_password_loc.sendKeys(password);
+    }
+
     public void warnmeldungVerify(String meldung) {
         if (meldung.equals("")) {
             System.out.println("registerEmail_loc.getAttribute(\"validationMessage\") = " + registerEmail_loc.getAttribute("validationMessage"));
@@ -60,14 +74,5 @@ public class LoginPage extends BasePage {
             assertEquals(meldung, actualWarnmeldung);
         }
     }
-
-    public void login(){
-
-        username_loc.sendKeys(ConfigurationReader.get("email"));
-        password_loc.sendKeys(ConfigurationReader.get("passwort"));
-        anmeldenBtn_loc.click();
-
-    }
-
 
 }
