@@ -17,7 +17,8 @@ public class Menu_StepDef extends BrowserUtils {
 
     @When("All links on the Website should be able be verified")
     public void allLinksOnTheWebsiteShouldBeAbleBeVerified() {
-        List<WebElement> links = Driver.get().findElements(By.cssSelector("link"));
+//        List<WebElement> links = Driver.get().findElements(By.cssSelector("link"));
+        List<WebElement> links = Driver.get().findElements(By.xpath("//a"));
 
         System.out.println("Total links are " + links.size());
 
