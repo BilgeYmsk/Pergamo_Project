@@ -50,7 +50,7 @@ public class LoginPage extends BasePage {
     public void login(){
 
         username_loc.sendKeys(ConfigurationReader.get("email"));
-        password_loc.sendKeys(ConfigurationReader.get("passwort"));
+        password_loc.sendKeys(ConfigurationReader.get("password"));
         anmeldenBtn_loc.click();
 
     }
@@ -59,6 +59,8 @@ public class LoginPage extends BasePage {
         registerEmail_loc.sendKeys(email);
         reg_password_loc.sendKeys(password);
     }
+
+
 
     public void warnmeldungVerify(String meldung) {
         if (meldung.equals("")) {

@@ -1,5 +1,6 @@
 package stepDefs;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -49,10 +50,12 @@ public class Menu_StepDef extends BrowserUtils {
     }
 
     @Then("Verify the alle product clickable")
-    public void verifyTheAlleProductClickable() {
+    public void verifyTheAlleProductClickable() throws InterruptedException {
 
         ProductPage productPage=new ProductPage();
         productPage.productList_SelectAndVerify();
 
     }
+
+
 }

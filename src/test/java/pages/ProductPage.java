@@ -20,7 +20,7 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//h1")
     public WebElement productText_loc;
 
-    public void productList_SelectAndVerify() {
+    public void productList_SelectAndVerify() throws InterruptedException {
 
         int productSize = product_list.size();
 
@@ -34,6 +34,7 @@ public class ProductPage extends BasePage {
         for (int i = 0; i <product_list.size() ; i++) {
 
             product_list.get(i).click();
+            Thread.sleep(2000);
             product++;
 //            productList.add(product_list.get(i).getText());
             Driver.get().navigate().back();
