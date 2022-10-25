@@ -1,8 +1,9 @@
 package pages;
 
-import org.junit.Assert;
+import static org.junit.Assert.*;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utilities.ConfigurationReader;
 
 public class KontoPage extends BasePage {
 
@@ -13,6 +14,13 @@ public class KontoPage extends BasePage {
         String actualText = usernameText_loc.getText();
         System.out.println("actualText = " + actualText);
 
-        Assert.assertEquals(email, actualText);
+        assertEquals(email, actualText);
+    }
+
+    public void theUserCanBeLogin() {
+        String actualText = usernameText_loc.getText();
+        System.out.println("actualText = " + actualText);
+
+        assertTrue(ConfigurationReader.get("email").contains(actualText));
     }
 }

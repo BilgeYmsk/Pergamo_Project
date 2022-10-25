@@ -7,10 +7,10 @@ Feature:Register Function
 
 
   Scenario:Register Function_positive scenario
-    When The user enters valid "sdet.praktikum7@gmail.com" and "Test1234!()TEST."
+    When The user enters valid "sdet.praktikum8@gmail.com" and "Test1234!()TEST."
     And  The user click on Privacy Policy Box
     And  The user click on Registieren button
-    Then Verify that the user can be register mit valid Email "sdet.praktikum7"
+    Then Verify that the user can be register mit valid Email "sdet.praktikum8"
 
 
   Scenario Outline:Register Function_negative scenario

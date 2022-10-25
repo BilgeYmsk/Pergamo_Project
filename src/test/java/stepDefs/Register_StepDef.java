@@ -20,8 +20,8 @@ public class Register_StepDef {
     }
 
 
-    @When("The user enters valid E-Mail and Passwort")
-    public void theUserEntersValidEMailAndPasswort() {
+    @When("The user enters valid E-Mail and Password")
+    public void the_user_enters_valid_E_Mail_and_Password(){
 
         loginPage.login();
     }
