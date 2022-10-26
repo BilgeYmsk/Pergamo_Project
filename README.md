@@ -1,4 +1,4 @@
-# Pergamo_Project
+# Pergamo_Project (Praktikum)
 
 Codes and Tests Prepared by : 
 
