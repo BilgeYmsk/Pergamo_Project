@@ -1,6 +1,8 @@
 # Pergamo_Project
 
-Codes and Tests Prepared by : Bilge Yumsak (QA Test Automation Engineer)  &  Atamyrat Atamyradow (QA Test Automation Engineer) 
+Codes and Tests Prepared by : 
+
+Bilge Yumsak (QA Test Automation Engineer)  &  Atamyrat Atamyradow (QA Test Automation Engineer) 
 
 Build tool:Maven
 
