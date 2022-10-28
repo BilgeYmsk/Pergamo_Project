@@ -1,9 +1,8 @@
 package stepDefs;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import static org.junit.Assert.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.ProductPage;
@@ -35,19 +34,25 @@ public class Menu_StepDef extends BrowserUtils {
     @Then("All image on the Website should be able be verified")
     public void allImageOnTheWebsiteShouldBeAbleBeVerified() {
 
-       List<WebElement> productArr = Driver.get().findElements(By.cssSelector("html img"));
-        productArr.forEach(e -> System.out.println(e.getAttribute("src")));
+//       List<WebElement> productArr = Driver.get().findElements(By.cssSelector("html img"));
+       List<WebElement> productArr = Driver.get().findElements(By.xpath("//img"));
+        System.out.println("productImg.size = " + productArr.size());
+//        productArr.forEach(e -> System.out.println(e.getAttribute("src")));
+
+        for (WebElement product:productArr) {
+
+            if(product.getAttribute("width").equals("500") & product.getAttribute("height").equals("500")){
+//                System.out.println((product.getAttribute("alt") + " size is 500*500"));
+                System.out.println();
+            }else{
+                String sizes= product.getAttribute("width") +"*"+ product.getAttribute("height");
+                System.out.println((product.getAttribute("alt") + " size is not 500*500 . But " + sizes));
+
+            }
+
+        }
 
 
-    }
-
-
-
-
-
-
-    @Then("the user should be able to clicked {string}")
-    public void theUserShouldBeAbleToClicked(String product) {
     }
 
     @Then("Verify the alle product clickable")
@@ -57,6 +62,7 @@ public class Menu_StepDef extends BrowserUtils {
         productPage.productList_SelectAndVerify();
 
     }
+
 
 
 }
