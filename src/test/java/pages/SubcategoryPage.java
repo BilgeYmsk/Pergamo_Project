@@ -22,11 +22,17 @@ public class SubcategoryPage extends BasePage{
     public WebElement alleOlivenöl_Loc;
 
     public void verify_selectedCategory(String productKategorien){
+
         String actualselectedCategory = selectedCategory_loc.getText();
+        scrollToElement(selectedCategory_loc);
+        waitFor(1);
         assertEquals(productKategorien,actualselectedCategory);
+
     }
     public void shopsubcategory_mth(String category) {
         WebElement shopsubcategory = Driver.get().findElement(By.xpath("(//ul[@class='sub-menu'])[1]//li//a[text()='" + category + "']"));
+        scrollToElement(shopsubcategory);
+        waitFor(1);
         shopsubcategory.click();
     }
 

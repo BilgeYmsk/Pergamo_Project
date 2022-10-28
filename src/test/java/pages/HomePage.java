@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import utilities.BrowserUtils;
+import static utilities.BrowserUtils.*;
 import utilities.Driver;
 
 import java.util.List;
@@ -17,7 +17,7 @@ public class HomePage extends BasePage {
 
         WebElement element = Driver.get().findElement(By.xpath(" (//h2[text()=' "+category+" '])[2]"));
         element.click();
-        BrowserUtils.waitFor(3);
+        waitFor(3);
     }
 
 

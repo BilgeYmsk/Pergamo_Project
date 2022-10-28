@@ -22,10 +22,12 @@ public abstract class BasePage {
     @FindBy(xpath = "//ul[@id='mastmenu']/li")
     public List<WebElement> home_Tab_loc;
 
+    @FindBy(xpath = "//div[normalize-space()='Beschreibung']")
+    public WebElement beschreibung_loc;
+
     public void mastmenu_mth(String category) {
         WebElement category_tb = Driver.get().findElement(By.xpath("(//a[text()='" + category + "'])[1]"));
         hover(category_tb);
-
 //        category_tb.click();
 //        waitFor(2);
     }

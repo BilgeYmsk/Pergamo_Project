@@ -20,6 +20,18 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//h1")
     public WebElement productText_loc;
 
+    @FindBy(id="pa_format")
+    public WebElement wähleEineOption_loc;
+
+    @FindBy(xpath = "//button[text()='in den Warenkorb']")
+    public WebElement warenkorbBtn_loc;
+
+    @FindBy(css = ".cart-total-wrap")
+    public WebElement cartTotal_loc;
+
+    @FindBy(xpath = "(//a[text()='Kasse'])[1]")
+    public WebElement kasseBtn_loc;
+
     public void productList_SelectAndVerify() throws InterruptedException {
 
         int productSize = product_list.size();
@@ -27,24 +39,26 @@ public class ProductPage extends BasePage {
         System.out.println("productSize = " + productSize);
         System.out.println(getElementsText(product_list));
 
-        int product=0;
+        int product = 0;
 
 //        List<String>productList = null;
 
-        for (int i = 0; i <product_list.size() ; i++) {
+        for (int i = 0; i < product_list.size(); i++) {
 
             product_list.get(i).click();
-            Thread.sleep(2000);
+
+            Thread.sleep(3000);
             product++;
+            waitFor(1);
 //            productList.add(product_list.get(i).getText());
             Driver.get().navigate().back();
             waitFor(1);
 
-            }
+        }
 
         Assert.assertEquals(productSize, product);
-        }
     }
+}
 
 
 

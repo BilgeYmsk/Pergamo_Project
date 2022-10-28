@@ -3,29 +3,43 @@ Feature: Shop SubCategory Product Category
   Background:
     Given The user is on the login page
 
-  @home
+  @shopSub
   Scenario Outline: Verification of Shop SubCategory Product links
-    When The user selects the category "Home" in the SubCategory
-    And  The user selects the product on the "<SubCategory>" of the Home Page
+    When The user selects the category "Shop" in the SubCategory
+    And  The user selects the product on the "<subcategory>" of the Kategorien
+    Then Verify the user should be able to select the "<subcategory>" product on the one subcategory tab
+    Then Verify the alle product clickable
 
     Examples:
-      | SubCategory                           |
+      | subcategory                           |
+      | Angebote                              |
       | Bestseller                            |
-      | Brotaufstriche                        |
+#      | Brotaufstriche                        |
       | Datteln Sorten                        |
       | Eingelegte Gemüse                     |
+      | Essig                                 |
+      | Fleisch Produkte                      |
+      | Geschenkartikel                       |
       | getrocknete Früchte                   |
       | getrocknete Gemüsen                   |
       | Gewürze                               |
       | Glutenfrei                            |
       | Granatapfelsirup                      |
+#      | Honig                                 |
       | Hülsenfrüchte                         |
+      | Kosmetik                              |
+      | Milchprodukte                         |
+      | Natürliche Öle                        |
+      | Neue Produkte                         |
       | Nuss mit Schale                       |
       | Nuss ohne Schale                      |
       | Nusssorrten                           |
+#      | Oliven                                |
+      | Olivenöl                              |
       | Premium Baklava                       |
       | Säfte                                 |
       | Sesampaste und Malasse                |
+      | Sirup-Melasse                         |
       | Tee und Kaffe Sorten                  |
       | Tiefkühlbackware                      |
       | Tomatenmark / Paprikamark             |
@@ -33,15 +47,14 @@ Feature: Shop SubCategory Product Category
       | Traditionelle Türkische Spezialitäten |
       | Türkische Desserts                    |
       | Vorteilspaket                         |
-      | Angebote                              |
-      | Neue Produkte                         |
-      | Olivenöl                              |
-      | Natürliche Öle                        |
-      | Oliven                                |
-      | Fleisch Produkte                      |
-      | Honig                                 |
-      | Milchprodukte                         |
-      | Kosmetik                              |
-      | Geschenkartikel                       |
-      | Essig                                 |
-      | Sirup-Melasse                         |
+
+
+
+
+
+
+
+
+
+
+
