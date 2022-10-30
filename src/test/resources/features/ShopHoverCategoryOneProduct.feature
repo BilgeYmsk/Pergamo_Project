@@ -3,9 +3,9 @@ Feature: Select one product
   Background:
     Given The user is on the login page
 
-  @shop
-  Scenario Outline: The user should be able to select a category.
-    When The user selects the category "Shop" in the category..
+  @shopSub2
+  Scenario Outline: The user should be able to select one product in the subcategory.
+    When The user selects the category "Shop" in the category.
     And  The user selects the product "<subcategory>" on the one subcategory tab
     Then Verify the user should be able to select the "<subcategory>" product on the one subcategory tab
     And  the user selects the "<product>" on the subcategory

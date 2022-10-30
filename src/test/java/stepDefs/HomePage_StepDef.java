@@ -1,6 +1,7 @@
 package stepDefs;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.When;
 import pages.HomePage;
 import static utilities.BrowserUtils.*;
 
@@ -18,5 +19,9 @@ public class HomePage_StepDef {
     }
 
 
+    @When("The user click the category {string} in the category.")
+    public void theUserClickTheCategoryInTheCategory(String category) {
+        homePage.mastmenuClick_mth(category);
 
+    }
 }

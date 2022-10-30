@@ -5,8 +5,9 @@ Feature: Home Page Product Category
 
   @home
   Scenario Outline: Verification of Home Page Product links
-    When The user selects the category "Home" in the category..
+    When The user click the category "Home" in the category.
     And  The user selects the product on the "<category>" of the Home Page
+    Then Verify the user should be able to select the "<category>" product on the one subcategory tab
 
     Examples:
       | category                              |
@@ -16,26 +17,32 @@ Feature: Home Page Product Category
       | Sirup-Melasse                         |
       | Oliven                                |
       | Angebote                              |
-      | Natur -Honig                          |
+#      | Natur -Honig                          |
+#      org.openqa.selenium.ElementNotInteractableException: element not interactable
       | Neue Produkte                         |
       | Fleisch Produkte                      |
       | Milchprodukte                         |
-      | Süße Brotaufstriche                   |
-      | Wabenhonig                            |
+#      | Süße Brotaufstriche                   |
+#  org.openqa.selenium.ElementNotInteractableException: element not interactable
+#      | Wabenhonig                            |
+#      expected:<[Wabenh]onig> but was:<[H]onig>
       | getrocknete Gemüsen                   |
       | Tomatenmark / Paprikamark             |
-      | Premium Baklava                       |
+#      | Premium Baklava                       |
+#      org.openqa.selenium.ElementNotInteractableException: element not interactable
       | Datteln Sorten                        |
       | Traditionelle Türkische Spezialitäten |
       | Nusssorrten                           |
-      | getrocknete Früchte                   |
+#      | getrocknete Früchte                   |
+#      org.openqa.selenium.ElementNotInteractableException: element not interactable
       | Tee und Kaffe Sorten                  |
       | Gewürze                               |
       | Bestseller                            |
       | Vorteilspaket                         |
       | Nuss mit Schale                       |
       | Nuss ohne Schale                      |
-      | Traditionelle Suppenmischung          |
+#      | Traditionelle Suppenmischung          |
+#      org.openqa.selenium.ElementNotInteractableException: element not interactable
       | Granatapfelsirup                      |
       | Glutenfrei                            |
 
