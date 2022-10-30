@@ -17,7 +17,7 @@ public class ShopSubCategoryPage extends BasePage {
     @FindBy(xpath = "//ul[@class='product-categories']//li//a")
     public List<WebElement> product_categories_list;
 
-    public void shopSubCategory(String category) {
+    public void selectShopSubCategory(String category) {
 
         WebElement category_tb = Driver.get().findElement(By.xpath("(//a[text()='" + category + "'])[1]"));
         category_tb.click();

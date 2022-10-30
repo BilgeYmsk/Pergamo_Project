@@ -5,14 +5,14 @@ Feature: Buy one product
 
   @shop
   Scenario Outline: The user should be able to buy a product.
-    When The user selects the category "Shop" in the category..
-    And  The user selects the product "<subcategory>" on the one subcategory tab
-    Then Verify the user should be able to select the "<subcategory>" product on the one subcategory tab
-    And  the user selects the "<product>" on the subcategory
-    Then Verify the user should be able to see the selected "<productName>"
-
-    When The user enters valid "<firstname>" , "<lastname>" , "<email>", "<telephone>" ,"<password>" , "<confirm>"
-
+    When The user selects the category "Shop" in the SubCategory
+    And  The user selects the product "<subcategory>" on the one subcategory tab and choose the "Salzige Brotaufstriche"
+    And  The user select the "Testprodukt – Bitte nicht kaufen!..."
+    And  The user add the product in shopping bag
+    And  The user click the shopping bag and see selected product in the shopping bag
+    And  the user click the Kasse button
+    When The user enters valid "<firstname>" , "<lastname>" ,"<companyname>", "<address1>", "<address2>","<postcode>","<city>", "<telephone>" ,"<email>"
+    Then the user should be able to product name "Testprodukt - Bitte nicht kaufen!..."  and total preis in the Rechnung
     Examples:
-      | subcategory | product                                  | productName                           |
-      | Angebote    | Ajwa Datteln aus Medina Naturbelassen... | Ajwa Datteln Aus Medina Naturbelassen
+      | subcategory    |
+      | Brotaufstriche |

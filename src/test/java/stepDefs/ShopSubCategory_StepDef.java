@@ -12,7 +12,7 @@ public class ShopSubCategory_StepDef {
     @When("The user selects the category {string} in the SubCategory")
     public void theUserSelectsTheCategoryInTheSubCategory(String category) {
 
-        shopSubCategoryPage.shopSubCategory(category);
+        shopSubCategoryPage.selectShopSubCategory(category);
 
     }
 

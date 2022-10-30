@@ -14,11 +14,11 @@ public class SubCategory_StepDef {
 
     SubcategoryPage subcategoryPage=new SubcategoryPage();
 
-    @When("The user selects the category {string} in the category..")
+    @When("The user selects the category {string} in the category.")
     public void the_user_selects_the_category_in_the_category(String category) {
 
         subcategoryPage.mastmenu_mth(category);
-        waitFor(5);
+        waitFor(3);
     }
 
     @When("The user selects the product {string} on the one subcategory tab")

@@ -21,6 +21,11 @@ public class SubcategoryPage extends BasePage{
     @FindBy(xpath = "//h2[text()='Alle Olivenöl']")
     public WebElement alleOlivenöl_Loc;
 
+    @FindBy(xpath = "//a[text()='Essig']")
+    public WebElement essig_loc;
+    @FindBy(xpath = "//a[text()='Türkische Desserts']")
+    public WebElement turkischDessert_loc;
+
     public void verify_selectedCategory(String productKategorien){
 
         String actualselectedCategory = selectedCategory_loc.getText();
@@ -30,9 +35,16 @@ public class SubcategoryPage extends BasePage{
 
     }
     public void shopsubcategory_mth(String category) {
+
+        scrollToElement(essig_loc);
+
+        if(category.equalsIgnoreCase("Sesampaste und Malasse") ||category.equalsIgnoreCase("Tee und Kaffe Sorten ")||category.equalsIgnoreCase("Traditionelle Türkische Spezialitäten")|| category.equalsIgnoreCase("Türkische Desserts") ){
+            scrollToElement(turkischDessert_loc);
+        }
+
         WebElement shopsubcategory = Driver.get().findElement(By.xpath("(//ul[@class='sub-menu'])[1]//li//a[text()='" + category + "']"));
         scrollToElement(shopsubcategory);
-        waitFor(1);
+//        waitFor(1);
         shopsubcategory.click();
     }
 
